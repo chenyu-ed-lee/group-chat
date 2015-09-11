@@ -2,6 +2,8 @@ var express = require('express');
 var path = require('path');
 var app = express();
 
+var port = process.env.PORT || 8000;
+
 var messages = [];
 var users = {};
 
@@ -12,8 +14,8 @@ app.get('/', function(req, res){
 	res.render('index');
 });
 
-var server = app.listen(8000, function(){
-	console.log('listening on port 8000');
+var server = app.listen(port, function(){
+
 });
 
 var io = require('socket.io').listen(server);
